@@ -1,8 +1,7 @@
 import { EventEmitter } from 'events';
-import { Socket } from 'net';
 
 export class LDJClient extends EventEmitter {
-  constructor(stream: Socket) {
+  constructor(stream: EventEmitter) {
     super();
     let buffer = '';
 
@@ -18,7 +17,7 @@ export class LDJClient extends EventEmitter {
     });
   }
 
-  static connect(stream: Socket) {
+  static connect(stream: EventEmitter) {
     return new LDJClient(stream);
   }
 }
