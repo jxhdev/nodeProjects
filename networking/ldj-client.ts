@@ -15,6 +15,7 @@ export class LDJClient extends EventEmitter {
         boundary = buffer.indexOf(`\n`);
       }
     });
+    stream.on('close', () => {});
   }
 
   static connect(stream: EventEmitter) {

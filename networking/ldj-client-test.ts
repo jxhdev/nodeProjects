@@ -32,4 +32,20 @@ describe('LDJClient', () => {
       stream.emit('data', `"bar"}\n`);
     });
   });
+
+  it('should throw an error from improperly formatted JSON strings', done => {
+    client.on('message', message => {
+      assert.deepEqual(message, 'error parsing JSON');
+      done();
+    });
+    stream.emit('data', `{"foo":"b\n`);
+  });
+
+  it('should throw an error when data event is not JSON', done => {
+    client.on('message', message => {
+      assert.deepEqual(message, 'this is not the correct data format');
+      done();
+    });
+    stream.emit('data', 5);
+  });
 });
