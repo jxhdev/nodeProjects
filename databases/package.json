@@ -5,16 +5,19 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha -r ts-node/register **/*-test.ts",
-    "test:watch": "mocha --watch-extensions ts --watch -r ts-node/register **/*-test.ts"
+    "test:watch": "mocha --watch-extensions ts --watch -r ts-node/register **/*-test.ts",
+    "test:debug": "node --inspect node_modules/mocha/bin/_mocha --watch-extensions ts --watch -r ts-node/register **/*-test.ts"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/cheerio": "^0.22.10",
     "@types/mocha": "^5.2.5",
+    "@types/node-dir": "^0.0.32",
     "chai": "^4.2.0",
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "cheerio": "^1.0.0-rc.2",
+    "node-dir": "^0.1.17"
   }
 }
