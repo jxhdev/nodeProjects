@@ -8,6 +8,7 @@ const expect = chai.expect;
 
 const rdf = fs.readFileSync(`${__dirname}/pg132.rdf`);
 
+console.log(rdf);
 describe('parseRDF', () => {
   it('should be a function', () => {
     expect(parseRdf).to.be.a('function');
@@ -15,6 +16,8 @@ describe('parseRDF', () => {
 
   it('should parse RDF content', () => {
     const book = parseRdf(rdf);
-    expect(book).to.be.an('array');
+    console.log(book);
+    expect(book).to.be.an('object');
+    expect(book).to.have.property('id', 132);
   });
 });
